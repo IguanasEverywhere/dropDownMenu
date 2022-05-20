@@ -6,7 +6,6 @@ navLinks.forEach(navLink => {
     let currentDropdown = document.querySelector(`.${currentSelection}.dropdown-selections`);
 
     navLink.addEventListener("mouseover", () => {
-        console.log(currentDropdown);
         allDropdowns.forEach(dropDown => {
             dropDown.style.visibility = "hidden";
             dropDown.classList.remove("makeMove");
@@ -19,6 +18,12 @@ navLinks.forEach(navLink => {
         currentDropdown.addEventListener("mouseout", () => {
             currentDropdown.style.visibility="hidden";
             currentDropdown.classList.remove("makeMove");
+        });
+    });
+    navLink.addEventListener("mouseout", () => {
+        allDropdowns.forEach(dropDown => {
+            dropDown.style.visibility = "hidden";
+            dropDown.classList.remove("makeMove");
         });
     });
 });

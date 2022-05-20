@@ -7,43 +7,44 @@ body {
     height: 100vh;
     font-family: 'Roboto', sans-serif;
     display: grid;
-    grid-template: 65px auto / repeat(3, 1fr);
-    grid-template-areas: "nav-bar nav-bar nav-bar"
-        ". . dropdown-area";
+    grid-template: 65px auto 1fr / repeat(3, 1fr);
 }
 
 #nav-bar {
     background-color: black;
     color: white;
-    grid-area: nav-bar;
-
     display: grid;
     grid-template: auto / repeat(3, 1fr);
     grid-template-areas: "logo . nav-links";
+    grid-area: 1 / 1 / 2 / 4;
 }
 
 
 #logo {
     background-color: white;
+    color:black;
     width: 50px;
     height: 50px;
     grid-area: logo;
+    align-self: center;
+    margin-left: 5px;
 }
 
 #nav-links {
-    grid-area: nav-links;
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     justify-items: center;
+    grid-area: nav-links;
 }
 
 #dropdown-area {
-    grid-area: dropdown-area;
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    height: fit-content;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
 }
 
 .dropdown-selections {
@@ -59,16 +60,14 @@ body {
     justify-content: center;
     border: 1px solid black;
     cursor: pointer;
-    
 }
 
 .dropdown-choice:nth-last-child(1) {
     border-radius: 0 0 15px 15px;
 }
 
-
 .dropdown-choice:hover {
-    background-color: blue;
+    background-color: #8080806b;
 }
 
 .start-invisible {
@@ -80,7 +79,8 @@ body {
         height: 10px;
     }
     to {
-        height: fit-content;
+        /* why does this get rid of stutter? */
+        height: 500px; 
     }
 }
 
@@ -101,10 +101,3 @@ body {
 #nav-links > div:hover {
     background-color:#a3999970;
 }
-
-
-
-
-
-
-
